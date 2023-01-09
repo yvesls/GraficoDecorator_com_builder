@@ -18,8 +18,8 @@ public class BaseGrafico extends Componente {
 		this.setValueDataSet(valor);
 		
 		//System.out.println(grafico.toString());
-		barChart = ChartFactory.createBarChart( "", "",  "", dataset,
-				PlotOrientation.VERTICAL, false, true, true);
+		barChart = ChartFactory.createBarChart( "", "", "", dataset,
+				PlotOrientation.VERTICAL, true, true, true);
 		grafico.setDados(valor);
 		return barChart;
 	}
@@ -27,7 +27,7 @@ public class BaseGrafico extends Componente {
 	@Override
 	public JPanel atributosVisuais() {
 		chartPanel = new ChartPanel(dadosGrafico());
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(10, 190, 250, 200));
+		chartPanel.setBorder(BorderFactory.createEmptyBorder(10, 190, 230, 200));
 		return chartPanel;
 	}
 	
