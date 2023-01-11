@@ -1,17 +1,6 @@
-package bussiness;
-
-import java.awt.geom.Rectangle2D;
-import java.text.AttributedCharacterIterator;
-import java.text.AttributedString;
+package bussiness.decorator;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.AxisLabelLocation;
-import org.jfree.chart.axis.AxisLocation;
-import org.jfree.chart.axis.CategoryAnchor;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.CategoryLabelPosition;
-import org.jfree.chart.axis.CategoryLabelPositions;
-import org.jfree.chart.ui.RectangleInsets;
 
 public class TituloEixo1Grafico extends Decorator {
 
@@ -38,7 +27,6 @@ public class TituloEixo1Grafico extends Decorator {
 		/* define a posição do titulo do eixo inferior 
 		 * barChart.getCategoryPlot().getDomainAxis().setLabelLocation(AxisLabelLocation.HIGH_END);
 		 */
-		grafico.setEixo1(valor);
 		return this.elementoDecorado.dadosGrafico();
 	}
 }

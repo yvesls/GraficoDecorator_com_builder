@@ -1,4 +1,4 @@
-package bussiness;
+package bussiness.decorator;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,6 @@ public class BaseGrafico extends Componente {
 		//System.out.println(grafico.toString());
 		barChart = ChartFactory.createBarChart( "", "", "", dataset,
 				PlotOrientation.VERTICAL, true, true, true);
-		grafico.setDados(valor);
 		return barChart;
 	}
 
@@ -54,7 +53,6 @@ public class BaseGrafico extends Componente {
 
 	@Override
 	public JFreeChart dadosGrafico() {
-		//System.out.println(grafico.toString());
 		return barChart;
 	}
 

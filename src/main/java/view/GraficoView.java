@@ -5,14 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import bussiness.BaseGrafico;
-import bussiness.Componente;
-import bussiness.LegendaGrafico;
-import bussiness.SubtitleGrafico;
-import bussiness.TituloEixo1Grafico;
-import bussiness.TituloEixo2Grafico;
-import bussiness.TituloGrafico;
-import model.Grafico;
+import bussiness.decorator.BaseGrafico;
+import bussiness.decorator.Componente;
+import bussiness.decorator.SubtitleGrafico;
+import bussiness.decorator.TituloEixo1Grafico;
+import bussiness.decorator.TituloEixo2Grafico;
+import bussiness.decorator.TituloGrafico;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -63,9 +61,6 @@ public class GraficoView {
 
 		grafico = new TituloEixo2Grafico(grafico);
 		grafico.dadosGrafico("Bônus de fim de ano");
-
-		grafico = new LegendaGrafico(grafico);
-		grafico.dadosGrafico(true);
 
 		grafico = new TituloGrafico(grafico);
 		grafico.dadosGrafico("Exemplo Título");
