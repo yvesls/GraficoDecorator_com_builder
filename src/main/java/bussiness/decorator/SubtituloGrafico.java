@@ -7,9 +7,9 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.title.ShortTextTitle;
 import org.jfree.chart.title.Title;
 
-public class SubtitleGrafico extends Decorator {
+public class SubtituloGrafico extends Decorator {
 
-	public SubtitleGrafico(IComponente elementoDecorado) {
+	public SubtituloGrafico(IComponente elementoDecorado) {
 		super(elementoDecorado);
 	}
 	@Override
