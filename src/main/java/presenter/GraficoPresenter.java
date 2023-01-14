@@ -1,11 +1,20 @@
 package presenter;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import bussiness.builder.Diretor;
 import bussiness.builder.GraficoDoencasES20Builder;
+import bussiness.decorator.BaseGrafico;
 import bussiness.decorator.Componente;
+import bussiness.decorator.TituloGrafico;
+import view.BaseGraficoView;
 import view.GraficoView;
 
 public class GraficoPresenter {
@@ -13,6 +22,7 @@ public class GraficoPresenter {
 	private JPanel panelGrafico;
 	private Componente grafico;
 	private boolean isBaseGrafico;
+	private BaseGraficoPresenter basePresenter;
 
 	public GraficoPresenter(GraficoView view) {
 		this.view = view;
@@ -36,7 +46,7 @@ public class GraficoPresenter {
 			public void actionPerformed(ActionEvent e) {
 				if (!isBaseGrafico) {
 					inserirDadosNovoGrafico();
-				}else {
+				} else {
 					inserirSubtitulo();
 				}
 			}
@@ -44,8 +54,9 @@ public class GraficoPresenter {
 		this.view.getChckbxTitulo().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!isBaseGrafico) {
+					System.out.println("ecddw");
 					inserirDadosNovoGrafico();
-				}else {
+				} else {
 					inserirTitulo();
 				}
 			}
@@ -54,7 +65,7 @@ public class GraficoPresenter {
 			public void actionPerformed(ActionEvent e) {
 				if (!isBaseGrafico) {
 					inserirDadosNovoGrafico();
-				}else {
+				} else {
 					inserirTituloEixoX();
 				}
 			}
@@ -63,40 +74,42 @@ public class GraficoPresenter {
 			public void actionPerformed(ActionEvent e) {
 				if (!isBaseGrafico) {
 					inserirDadosNovoGrafico();
-				}else {
+				} else {
 					inserirTituloEixoY();
 				}
 			}
 		});
 	}
-	
+
 	public void inserirDadosNovoGrafico() {
-		/* chamar uma nova view com novo presenter para criar um novo gráfico.
-		*  esse presenter deve retornar o gráfico-base para que o gráfico deste presenter seja iniciado.
-		*/
+		BaseGraficoView window = new BaseGraficoView();
+		this.basePresenter = new BaseGraficoPresenter(window);
+		if(this.basePresenter.getDados() != null) {
+			grafico = new BaseGrafico();
+			grafico.dadosGrafico(this.basePresenter.getDados());
+		}
 	}
-	
+
 	public void inserirTitulo() {
-		/* chamar uma nova view com novo presenter para criar um novo gráfico.
-		*  esse presenter deve receber o gráfico do presenter principal e retornar o gráfico criado para que o gráfico deste presenter seja iniciado.
-		*/
+		BaseGraficoView window = new BaseGraficoView();
+		this.basePresenter = new BaseGraficoPresenter(window);
 	}
 
 	public void inserirSubtitulo() {
-		/* Idem ao anterior
-		 * */
+		BaseGraficoView window = new BaseGraficoView();
+		this.basePresenter = new BaseGraficoPresenter(window);
 	}
-	
+
 	public void inserirTituloEixoX() {
-		/* Idem ao anterior
-		 * */
+		BaseGraficoView window = new BaseGraficoView();
+		this.basePresenter = new BaseGraficoPresenter(window);
 	}
-	
+
 	public void inserirTituloEixoY() {
-		/* Idem ao anterior
-		 * */
+		BaseGraficoView window = new BaseGraficoView();
+		this.basePresenter = new BaseGraficoPresenter(window);
 	}
-	
+
 	public void exibeGraficoPadrao() {
 		panelGrafico = new JPanel();
 		Diretor diretor = new Diretor();
