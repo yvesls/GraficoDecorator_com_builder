@@ -1,19 +1,53 @@
 package view;
 
+import java.awt.Font;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class EixoXView {
 
 	private JFrame frame;
+	private JTextField textField;
+	private JButton btnConfirmar;
 
 	public EixoXView() {
-		this.frame = new JFrame();
 		initialize();
+		frame.setVisible(true);
+		frame.getContentPane().setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("Nome do eixo X:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel.setBounds(63, 75, 126, 14);
+		frame.getContentPane().add(lblNewLabel);
+
+		textField = new JTextField();
+		textField.setBounds(63, 100, 313, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+
+		btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnConfirmar.setBounds(276, 136, 100, 23);
+		frame.getContentPane().add(btnConfirmar);
 	}
 
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public JButton getBtnConfirmar() {
+		return btnConfirmar;
 	}
 }

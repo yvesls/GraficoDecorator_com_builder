@@ -105,7 +105,7 @@ public class GraficoView {
 		panel.add(lblNewLabel_1);
 
 		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Horizontal", "Vertical"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Vertical", "Horizontal"}));
 		comboBox.setBounds(839, 32, 133, 22);
 		panel.add(comboBox);
 

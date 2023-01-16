@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import bussiness.observer.Subject;
 import view.BaseGraficoDadoView;
 
 public class BaseGraficoDadoPresenter {
@@ -32,4 +33,5 @@ public class BaseGraficoDadoPresenter {
 	public ArrayList<String> getDados() {
 		return dados;
 	}
+	
 }

@@ -32,8 +32,6 @@ public class TituloView {
 		btnConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnConfirmar.setBounds(276, 136, 100, 23);
 		frame.getContentPane().add(btnConfirmar);
-		
-		
 	}
 
 	private void initialize() {

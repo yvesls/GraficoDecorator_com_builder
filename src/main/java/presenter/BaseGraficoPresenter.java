@@ -5,26 +5,29 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import bussiness.observer.Subject;
 import view.BaseGraficoDadoView;
 import view.BaseGraficoView;
 
-public class BaseGraficoPresenter {
+public class BaseGraficoPresenter extends Subject {
 	private BaseGraficoView view;
 	private BaseGraficoDadoPresenter dadoPresenter;
 	private ArrayList<String[]> dados;
 	private boolean temNovoDAdicionado;
+	private int status;
 
-	public BaseGraficoPresenter(BaseGraficoView view) {
+	public BaseGraficoPresenter(BaseGraficoView view, int status) {
 		this.view = view;
 		this.configurarJanela();
 		this.dados = new ArrayList<>();
 		this.temNovoDAdicionado = false;
+		this.status = status;
 	}
 
 	public void configurarJanela() {
 		this.view.getBtnAdicionarDado().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!temNovoDAdicionado) {
+				if (!temNovoDAdicionado) {
 					BaseGraficoDadoView window = new BaseGraficoDadoView();
 					dadoPresenter = new BaseGraficoDadoPresenter(window);
 					temNovoDAdicionado = true;
@@ -35,6 +38,8 @@ public class BaseGraficoPresenter {
 		this.view.getBtnConfirmar().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				view.getFrame().setVisible(false);
+				status = 1;
+				notifyObservers(1);
 			}
 		});
 
